@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package permissions.v1;
+
+option go_package = "babilo/permissions/v1";
+
+service Permissions {
+    rpc GetUserPermissions(GetUserPermissionsRequest) returns (UserPermissionsResponse);
+}
+
+message GetUserPermissionsRequest {
+    int64 user_id = 1;
+}
+
+message UserPermissionsResponse {
+    map<string, bool> permissions = 1;
+}
